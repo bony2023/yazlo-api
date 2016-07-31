@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html>
+	<title>{% block pagetitle %}{% endblock %}</title>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link href="{% static 'stylesheets/bootstrap.min.css' %}" rel="stylesheet" type="text/css"/>
+		<link href="{% static 'stylesheets/application.css' %}" rel="stylesheet" type="text/css"/>
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="header">
+				<nav class="navbar navbar-default">
+					<div class="container-fluid">
+					  <div class="navbar-header">
+					    <div class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-content" aria-expanded="false">
+					      <span class="sr-only">Menu</span>
+					    </div>
+					    <a class="navbar-brand" href="/">
+					    	<div id="icon"><span class="icon-yazlo"></span></div>
+					    </a>
+					  </div>
+					  <div class="collapse navbar-collapse" id="navbar-content">
+					    <ul class="nav navbar-nav navbar-right">
+					      <li><a class="scroll" href="#features">Features</a></li>
+					      <li><a class="scroll" href="#usage">Documentation</a></li>
+					      <li><a target="_blank" href="https://github.com/yazlo-api/yazlo-api">View on Github</a></li>
+					    </ul>
+					  </div>
+					</div>
+				</nav>
+			</div>
+			{% block content %}
+			{% endblock %}
+		</div>
+		<script src="{% static 'javascripts/jquery.min.js' %}" type="text/javascript"></script>
+		<script src="{% static 'javascripts/bootstrap.min.js' %}" type="text/javascript"></script>
+		<script src="{% static 'javascripts/application.js' %}" type="text/javascript"></script>
+		<script src='https://www.google.com/recaptcha/api.js'></script>
+		<script type="text/javascript">
+		  (function (p,o,s,t,m,a,n) {
+		    !p[s] && (p[s] = function () { (p[t] || (p[t] = [])).push(arguments); });
+		    !o.getElementById(s+t) && o.getElementsByTagName("head")[0].appendChild((
+		      (n = o.createElement("script")),
+		      (n.id = s+t), (n.async = 1), (n.src = m), n
+		    ));
+		  }(window, document, "_pm", "PostmanRunObject", "https://run.pstmn.io/button.js"));
+		</script>
+	</body>
+</html>

@@ -1,0 +1,8 @@
+*.pyc
+*.swp
+.DS_Store
+db.sqlite3
+__pycache__
+.sass-cache/
+local_settings.py
+config_vars.py

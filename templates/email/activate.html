@@ -1,0 +1,11 @@
+{% extends 'email/base.html' %}
+
+{% block content %}
+<div align="center" style="margin: 3em 0 5em 0; font-size: 15px; word-spacing: 2px">
+<p>Hello, Welcome to Yazlo.</p>
+<p>You have just requested to use Yazlo API. Please click below to activate your account.</p>
+<a style="text-align: center" href="{{ activationLink }}"><button style="height: 40px; width: 200px; border-radius: 5px; border: none; outline: none; border: 1px solid #614381; background: #614381; color: white; cursor: pointer; margin: 2em 0">Activate my Account</button></a>
+<p>You can also copy paste <a href="{{ activationLink }}">{{ activationLink }}</a> into your browser, to activate your account.</p>
+<p>Yazlo Team</p>
+</div>
+{% endblock %}

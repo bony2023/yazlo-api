@@ -1,0 +1,591 @@
+// Variables and Constants
+
+$themeColor: #614381;
+$staticURL: '/static';
+
+/* Navbar */
+$navMenuImagePath: $staticURL + "/images/hamburger.gif";
+$navMenuImagePath_retina: $staticURL + "/images/hamburger-retina.gif";
+$logoImagePath: $staticURL + "/images/rsz_yazlo.png";
+
+/* Fonts Path */
+$assistantLight: "assistantlight";
+$assistantLightWoffPath: $staticURL + "/fonts/assistant-light-webfont.woff";
+$assistantLightWoff2Path: $staticURL + "/fonts/assistant-light-webfont.woff2";
+$assistantRegular: "assistantregular";
+$assistantRegularWoffPath: $staticURL + "/fonts/assistant-regular-webfont.woff";
+$assistantRegularWoff2Path: $staticURL + "/fonts/assistant-regular-webfont.woff2";
+
+$fontIconTTF: $staticURL + '/fonts/icon.ttf';
+$fontIconEOT: $staticURL + '/fonts/icon.eot';
+$fontIconWOFF: $staticURL + '/fonts/icon.woff';
+$fontIconSVG: $staticURL + '/fonts/icon.svg';
+
+/* Padding Constants */
+$pagePadding: 20px;
+
+// Common CSS across all pages
+
+// Icon Fonts
+
+@font-face {
+    font-family: 'icon';
+    src: url($fontIconEOT);
+    src: url($fontIconEOT) format('embedded-opentype'),
+         url($fontIconTTF) format('truetype'),
+         url($fontIconWOFF) format('woff'),
+         url($fontIconSVG) format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'icon' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.icon-cloud-face:before {
+    content: "\e900";
+}
+.icon-database:before {
+    content: "\e901";
+}
+.icon-cloud:before {
+    content: "\e902";
+}
+.icon-yazlo:before {
+    content: "\e903";
+}
+
+
+// Other fontface
+
+@font-face {
+    font-family: $assistantLight;
+    src: url($assistantLightWoff2Path) format('woff2'),
+         url($assistantLightWoffPath) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: $assistantRegular;
+    src: url($assistantRegularWoff2Path) format('woff2'),
+         url($assistantRegularWoffPath) format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html, body {
+  margin: 0px;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+}
+
+
+
+.wrapper {
+    height: 100%;
+    width: 100%;
+
+    .content {
+        width: 100%;
+        height: 100%;
+    } 
+}
+
+.overlay {
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    position:fixed;
+    z-index:999999999;
+    background:rgba(0,0,0,0.4);
+    opacity:0;
+    display:none;
+    transition:opacity linear 0.5s
+}
+
+.overlay-visible {
+    display:block;
+    opacity:0.999999;
+}
+
+#modal {
+    top:50%;
+    left:50%;
+    padding:0;
+    width:400px;
+    font-size:16px;
+    text-align:left;
+    background:white;
+    border-radius:5px;
+    position:absolute;
+    margin-top:-133px;
+    margin-left:-200px;
+    box-shadow:0 2px 4px rgba(0,0,0,0.24);
+    font-family: $assistantRegular;
+
+    #modal-heading {
+        height:64px;color:#808080;font-size:24px;padding:0 25px;line-height:64px;position:relative;background:#fbfbfb;border-top-left-radius:5px;border-top-right-radius:5px;border-bottom:solid 1px #ececec;
+    }
+
+    #modal-row {
+        height:64px;display:block;font-size:16px;padding:0 25px;line-height:64px;text-decoration:none;
+
+        .g-recaptcha {
+            padding: 1em 1.5em;
+
+            @media screen and (min-width: 48em) {
+                padding: 1em 0.5em;
+            }
+        }
+
+        img {
+            margin-top: -2em;
+            display: none
+        }
+    }
+
+        button {
+            position: relative;
+            top: -1.5em;
+            height: 45px;
+            line-height: 40px;
+            width: 220px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            border: 1px solid $themeColor;
+            background: rgba(white, 0.9);
+            color: $themeColor;
+
+            &:hover {
+                background: $themeColor;
+                color: rgba(white, 0.9);
+                border: 1px solid rgba(white, 0.9);
+            }
+        }
+
+    .modal-close {
+        float: right;
+
+        svg {
+            cursor: pointer
+        }
+    }
+
+    .join-result {
+        display: none !important;
+    }
+
+    .join-result-show {
+        display: block !important;
+    }
+
+    @media screen and (max-width:440px) {
+        left:0;width:100%;margin-left:0;margin-right:0
+    }
+}
+
+.navbar-default {
+    border: none;
+    background: transparent;
+    font-family: $assistantRegular;
+
+    .navbar-toggle {
+        border: none;
+        margin: 0;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        -o-user-select: none;
+        user-select: none;
+        width: 50px;
+        height: 50px;
+        text-indent: -9999px;
+        background: $themeColor url($navMenuImagePath) no-repeat 50% 33%;
+
+        &:hover, &:focus {
+            background-color: $themeColor;
+            cursor: pointer;
+        }
+
+        @media screen and (-webkit-min-device-pixel-ratio: 1.3),
+        screen and (min--moz-device-pixel-ratio: 1.3),
+        screen and (-o-min-device-pixel-ratio: 2 / 1),
+        screen and (min-device-pixel-ratio: 1.3),
+        screen and (min-resolution: 192dpi),
+        screen and (min-resolution: 2dppx) {
+            background-image: url($navMenuImagePath_retina);
+            -webkit-background-size: 100px 100px !important;
+            -moz-background-size: 100px 100px !important;
+            -o-background-size: 100px 100px !important;
+            background-size: 100px 100px !important
+        }
+    }
+
+    .navbar-brand {
+        #icon {
+            color: $themeColor;
+            font-size: 27px;
+            margin-top: 8px;
+
+            @media screen and (min-width: 48em) {
+                font-size: 30px;
+                margin-top: 6px;
+            }
+        }
+    }
+
+    #navbar-content {
+        border: none;
+        a {
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 400;
+            font-size: 112.5%;
+            letter-spacing: 2px;
+            color: #37302a;
+            text-decoration: none;
+            width: 100%;
+            height: 40px;
+            line-height: 40px;
+            //border-bottom: 1px solid $themeColor;
+            padding: 1em 1em;
+
+            &:hover, &:focus {
+                color: $themeColor;
+           }
+        }
+    }
+}
+
+.row {
+    margin: 0;
+}
+
+
+// Index CSS
+
+.index {
+    width: 100%;
+    font-family: $assistantRegular;
+    .header-role {
+        width: 100%;
+        min-height: 400px;
+        background: $themeColor;
+        padding: 0 $pagePadding;
+
+        #yazlo-logo-only {
+            width: 120px;
+            height: 120px;
+            line-height: 155px;
+            border: 1px solid rgba(white, 0.7);
+            border-radius: 15px;
+            position: relative;
+            left: 50%;
+            top: 2em;
+            margin-left: -60px;
+            text-align: center;
+
+            & > .icon-cloud {
+                color: rgba(white, 0.8);
+                font-size: 350%;
+            }
+
+            @media screen and (min-width: 48em) {
+                height: 135px;
+                width: 135px;
+                line-height: 170px;
+                margin-left: -67.5px;
+
+                & > .icon-cloud {
+                    font-size: 400%;
+                }
+            }
+        }
+
+        #yazlo-intro {
+            position: relative;
+            margin-top: 4em;
+            text-align: center;
+            text-shadow: 0px 1px rgba(#000, 0.3);
+
+            & > span {
+                color: rgba(white, 0.9);
+                font-size: 150%;
+            }
+
+            @media screen and (min-width: 48em) {
+                padding: 0 $pagePadding + 20px;
+
+                & > span {
+                    font-size: 200%;
+                }
+            }
+        }
+
+        #join-yazlo {
+            width: 100%;
+            font-family: $assistantLight;
+
+            & > form {
+                margin: 3em 0.5em 1em 0.5em;
+                input[type=email], button {
+                    height: 45px;
+                    width: 280px;
+                    margin: 0.5em 0em;
+                    border-radius: 5px;
+                    border: none;
+                    outline: none;
+                }
+
+                input[type=email] {
+                    padding: 10px;
+                    background: $themeColor;
+                    color: rgba(white, 0.9);
+                    border: 1px solid rgba(white, 0.9);
+                    margin-top: 1em;
+                }
+
+                button {
+                    border: 1px solid rgba(grey, 0.3);
+                    background: rgba(white, 0.9);
+                    color: $themeColor;
+
+                    &:hover {
+                        background: $themeColor;
+                        color: rgba(white, 0.9);
+                        border: 1px solid rgba(white, 0.9);
+                    }
+                }
+
+                @media screen and (min-width: 48em) {
+                    & > div {
+                        display: inline-block;
+                    }
+
+                    input[type=email], button {
+                        margin: 0em 0.5em;
+                    }
+                }
+            }
+        }
+
+        #yazlo-version {
+            font-family: $assistantLight;
+            margin: 0.5em 0;
+            height: 40px;
+            line-height: 40px;
+            font-size: 95%;
+            text-shadow: 0px 1px rgba(#000, 0.3);
+            color: rgba(white, 0.5);
+        }
+    }
+
+    #features {
+        width: 100%;
+        min-height: 400px;
+        padding: 0 $pagePadding;
+        margin: 4em 0 2.5em 0;
+
+        h1 {
+            font-weight: 600;
+            font-size: 190%;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0.2em;
+            font-size: 140%;
+            font-family: $assistantLight;
+            text-align: center;
+            color: grey;
+        }
+
+        .feature-content {
+            width: 100%;
+            min-height: 200px;
+            margin: 2em 0 3em 0;
+
+            div[id^="feature-"] {
+                width: 100%;
+                float: none;
+                padding: 0;
+
+                .glyphicon, [class^="icon"] {
+                    font-size: 60px;
+                    color: $themeColor;
+                }
+
+                .glyphicon-heart {
+                    color: rgba(red, 0.8);
+                }
+
+                h2 {
+                    font-size: 150%;
+                    margin-top: 0.2em;
+                    font-weight: 500;
+                }
+
+                p {
+                    font-size: 115%;
+                    margin: -0.2em 0em 2em 0;
+                    color: grey;
+                    text-align: center
+                }
+            }
+        }
+
+        & > #hr > hr {
+            width: 120px;
+            background: 1px solid rgba(#ccc, 0.5);
+        }
+
+        #github-src {
+            margin-top: 2.5em;
+            font-size: 150%;
+            font-family: $assistantLight;
+            color: grey;
+        }
+
+        & > a > button {
+            height: 45px;
+            width: 280px;
+            border-radius: 5px;
+            margin: 1em;  
+            border: none;
+            outline: none;
+            border: 1px solid $themeColor;
+            color: $themeColor;
+            background: transparent;
+            font-size: 18px;
+
+            &:hover {
+                background: $themeColor;
+                color: rgba(white, 0.9)
+            }
+        }
+
+        @media screen and (min-width: 48em) {
+            padding: 0 $pagePadding + 20px;
+
+            h1 {
+                font-weight: 700;
+                font-size: 210%;
+            }
+
+            h3 {
+                font-size: 170%;
+            }
+
+            .feature-content {
+                div[id^="feature-"] {
+                    width: 33.33%;
+                    float: left;
+                    padding: 0 1em;
+                }
+
+                .glyphicon, [class^="icon"] {
+                    font-size: 70px !important;
+                }
+
+                h2 {
+                    font-size: 160% !important;
+                }
+
+                p {
+                    text-align: justify !important
+                }
+            }
+        }
+    }
+
+    #seperation {
+        height: 0em;
+        border-bottom: 1px solid rgba(#ccc, 0.5);
+    }
+
+    #usage {
+        width: 100%;
+        min-height: 200px;
+        padding: 0 $pagePadding;
+        margin: 4em 0 2.5em 0;
+
+        h1 {
+            font-weight: 600;
+            font-size: 190%;
+            text-align: center;
+        }
+
+        h3 {
+            margin-top: 0.2em;
+            font-size: 140%;
+            font-family: $assistantLight;
+            text-align: center;
+            color: grey;
+        }
+
+        .usage-content {
+            width: 100%;
+            margin: 2em 0 3em 0;
+
+            div[id^="postman-"] {
+                float: none;
+                display: block;
+                width: 100%;
+                margin: 1em;
+            }
+
+            #postman-btn {
+                margin: 2em -0.5em;
+            }
+        }
+
+        @media screen and (min-width: 48em) {
+            padding: 0 $pagePadding + 20px;
+
+            h1 {
+                font-weight: 700;
+                font-size: 210%;
+            }
+
+            h3 {
+                font-size: 170%;
+            }
+        }
+    }
+
+    #footer {
+        width: 100%;
+        height: 100px;
+        background: rgba($themeColor, 0.9);
+
+        & > span {
+            display: block;
+            color: rgba(white, 0.7);
+            padding: 2em 0 0.7em 0;
+        }
+
+        #by-author {
+            padding: 0;
+
+            a {
+                color: white;
+            }
+        }
+    }
+}

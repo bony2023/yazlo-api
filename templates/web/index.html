@@ -1,0 +1,82 @@
+{% extends 'web/base.html' %}
+
+{% block pagetitle %}
+	Database Storage Platform | Yazlo
+{% endblock %}
+
+{% block content %}
+<div class="join overlay">
+	<div id="modal">
+		<div id="modal-heading">Join Yazlo <span class="modal-close"><svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns"><g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"><g id="API-Documentation---Open-in-Postman-Modal-(Hover)" sketch:type="MSArtboardGroup" transform="translate(-671.000000, -218.000000)" stroke="#9B9B9B"><g id="Open-in-Postman" sketch:type="MSLayerGroup" transform="translate(312.000000, 193.000000)"><path d="M369.475911,34.9940828 L377.901338,26.5741954 C378.032887,26.4427328 378.032887,26.2300595 377.901338,26.0985969 C377.769789,25.9671344 377.556527,25.9671344 377.424978,26.0985969 L369,34.5180357 L360.574573,26.0985969 C360.443024,25.9671344 360.230211,25.9671344 360.098662,26.0985969 C359.967113,26.2300595 359.967113,26.4427328 360.098662,26.5741954 L368.52364,34.9940828 L360.098662,43.4135216 C359.967113,43.5449842 359.967113,43.7576575 360.098662,43.8891201 C360.164212,43.9550757 360.250415,43.9878292 360.336617,43.9878292 C360.42282,43.9878292 360.509023,43.9550757 360.574573,43.8891201 L369,35.47013 L377.424978,43.8891201 C377.490977,43.9550757 377.576731,43.9878292 377.662934,43.9878292 C377.749136,43.9878292 377.835339,43.9550757 377.901338,43.8891201 C378.032887,43.7576575 378.032887,43.5449842 377.901338,43.4135216 L369.475911,34.9940828" id="Remove" sketch:type="MSShapeGroup"></path></g></g></g></svg></span></div>
+		<div class="center-block text-center" id="modal-row">
+			<div class="g-recaptcha" data-sitekey="6LcHeSUTAAAAACNglP_jBxKAKZZzjRGrF1-l__ub"></div>
+		</div>
+		<div class="center-block text-center" id="modal-row"></div>
+		<div class="center-block text-center" id="modal-row">
+			<button type="submit">Join Yazlo</button>
+		</div>
+		<div class="center-block text-center join-result" id="modal-row"></div>
+		<div class="center-block text-center" id="modal-row"><img src="/static/images/loading.svg"/></div>
+	</div>
+</div>
+<div class="index content">
+	<div class="header-role">
+		<div id="yazlo-logo-only"><span class="icon-cloud"></span><span class="sr-only">Yazlo</span></div>
+		<div id="yazlo-intro"><span>Store your application's data for free right away with our NoSQL database storage platform's REST API.</span></div>
+		<div id="join-yazlo" class="center-block text-center">
+			<form method="POST" action="">
+				{% csrf_token %}
+				<div>
+					<input type="email" placeholder="Email" name="email">
+				</div>
+				<div>
+					<button type="submit">Join Yazlo</button>
+				</div>
+			</form>
+		</div>
+		<div id="yazlo-version" class="text-center">Currently v1.0b</div>
+	</div>
+	<div class="text-center" id="features">
+		<h1>Amazing, Simple and Fast.</h1>
+		<h3>Yazlo makes storing the application's data easy and fast without much hassle.</h3>
+		<div class="feature-content center-block text-center">
+			<div id="feature-1">
+				<span class="glyphicon glyphicon-heart"></span>
+				<h2>Amazing</h2>
+				<p>Yazlo is amazing. To feel this amazing feeling just click that Join button. Authorized API requests from anywhere.</p>
+			</div>
+			<div id="feature-2">
+				<span class="glyphicon glyphicon-thumbs-up"></span>
+				<h2>Simple</h2>
+				<p>Seriously speaking, there is no documentation at all. API talking is made through cURL calls.</p>
+			</div>
+			<div id="feature-3">
+				<span class="icon-cloud-face"></span>
+				<h2>Fast</h2>
+				<p>JSON here JSON there JSON JSON everywhere. Yazlo only understands JSON, backed up with NoSQL database MongoDB.</p>
+			</div>
+		</div>
+		<span id="hr"><hr/></span>
+		<div id="github-src" class="text-center"><span class="text-center">Yazlo is available on GitHub.</span></div>
+		<a target="_blank" href="https://github.com/yazlo-api/yazlo-api"><button>View the Github project</button></a>
+	</div>
+	<div id="seperation"></div>
+	<div class="text-center" id="usage">
+		<h1>How to use?</h1>
+		<h3>Documentation and usage</h3>
+		<div class="usage-content center-block text-center">
+			<div id-"postman-text">
+				Yazlo API is crunched in a small postman file. To view all the API operations, <a target="_blank" href="https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en">download</a> postman chrome extension and import this file to get started.
+			</div>
+			<div id="postman-btn">
+				<div class="postman-run-button" data-postman-action="collection/import" data-postman-var-1="916d8dbde05fa2af724a"></div>
+			</div>
+		</div>
+	</div>
+	<div id="seperation"></div>
+	<div class="text-center" id="footer">
+		<span class="icon-yazlo"></span>
+		<span id="by-author">by <a target="_blank" href="https://bonyroopchandani.com">Bony Roopchandani</a></span>
+	</div>
+</div>
+{% endblock %}

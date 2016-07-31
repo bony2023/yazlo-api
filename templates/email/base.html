@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<body style="font-family: Arial, Helvetica; padding: 1em 4em">
+<header align="center" style="border-bottom: 1px solid #ccc">
+<img src="https://yazlo.herokuapp.com/static/images/yazlo.png" height="25"/>
+<p style="color: #614381; font-size: 15px; margin-top: 7px; letter-spacing:1px">Database Storage Platform</p>
+</header>
+{% block content %}
+{% endblock %}
+<footer align="center" style="border-top: 1px solid #ccc">
+<p style="color: grey; font-size: 12px">This email is intended for <a style="text-decoration:none" href="mailto:{{ receiver }}">{{ receiver }}</a>. If you have received this mail by mistake please forward this mail to <a style="text-decoration:none" href="mailto:yazlo.api@gmail.com">yazlo.api@gmail.com</a></p>
+<p style="color: grey; font-size: 12px"><a style="text-decoration:none" href="https://yazlo.herokuapp.com">Yazlo</a>. All rights reserved.</p>
+</footer>
+</body>
